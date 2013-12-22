@@ -14,10 +14,11 @@ Vagrant::Config.run do |config|
   host_group_id = 1000
 
   if RUBY_PLATFORM =~ /linux|darwin/
-    #config.vm.share_folder("app_name", "/vagrant/app_name", "/path/to/app/on/host/machine", :nfs => true)
+    config.vm.share_folder("app", "/rest/u/facsite/apps/facsite/current", "/Users/zzet/projects/my/FacSite", :nfs => true)
     host_user_id = Process.euid
     host_group_id = Process.egid
   end
+end
 
 Vagrant.configure("2") do |config|
     config.vm.provider :vmware_fusion do |v, override|
